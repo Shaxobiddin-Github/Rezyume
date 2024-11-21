@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+<style>
+  section{
+    background-color: #00fff2b9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
+
+  }
+  form{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 2rem;
+    opacity: 0.80;
+
+
+  }
+</style>
+<section class=" text-center text-lg-start container">
+  <style>
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
+
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+
+    
+.hone{
+	color:#fff;
+	padding:20px; 
+   border:none;
+   outline:0 !important;
+border-radius: 10px;
+background: #47aabc91;
+box-shadow:  28px 28px 57px #3d60a285, 
+             -28px -28px 57px #3747d398;
+	
+}
+.hone:hover{
+    background: #47aabc;
+    color: #050805;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px 
+    linear-gradient(transparent, #0005);
+}
+  </style>
+  
+
+  <div class="card mb-3">
+    <div class="row g-0 d-flex align-items-center" style="background-image: url('../media/photos/qor-parcha-removebg-preview.png');">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <img src="../media/photos/login.png" alt="Trendy Pants and Shoes"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+
+          <form method="post">
+
+              {% csrf_token %}
+
+            <!-- Username input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              {{login_form.username}}
+              <label class="form-label" for="form2Example1">Username</label>
+            </div>
+
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              {{login_form.password}}
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+
+              <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+                
+              </div>
+              
+            </div>
+
+            <!-- Submit button -->
+            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="hone">Sign in</button>
+           
+          </form>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

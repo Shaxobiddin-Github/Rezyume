@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+<style>
+    section{
+      background-color: #6890b15b;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
+  
+    }
+    form{
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 3rem;
+      padding: 2rem;
+      opacity: 0.80;
+    }
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
+
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+    
+.hone{
+	color:#fff;
+	padding:20px; 
+   border:none;
+   outline:0 !important;
+border-radius: 10px;
+background: #47aabc91;
+box-shadow:  28px 28px 57px #3d60a285, 
+             -28px -28px 57px #3747d398;
+	
+}
+.hone:hover{
+    background: #47aabc;
+    color: #050805;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px 
+    linear-gradient(transparent, #0005);
+}
+</style>
+
+
+{% block content %}
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://img.freepik.com/premium-photo/book-that-has-word-blue-it_869640-166741.jpg'); background-size: 50%;">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px; opacity: 0.80; background-color: rgba(0, 255, 255, 0.678);">
+            <div class="card-body p-5" >
+              <h2 class="text-uppercase text-center mb-5">Ruyxatdan Utish</h2>
+
+              <form method="post"  >
+
+                {% csrf_token %}
+
+                
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  {{form.username}}
+                  <label class="form-label" for="form3Example1cg">Usernmae</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  {{form.email}}
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  {{form.password1}}
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  {{form.password2}}
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div>
+
+               
+
+                <div class="d-flex justify-content-center">
+                  <button class="hone" type="submit" data-mdb-button-init data-mdb-ripple-init >Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}"
+                    class="fw-bold text-body"><u>Login</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

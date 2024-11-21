@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background: #479bbc
+}
+
+.card {
+	color:#fff;
+    width: 1000px;
+    border-radius: 10px;
+   background: linear-gradient(145deg, #4094a94b, #5f4cc944);
+box-shadow:  20px 20px 60px #3c78a041, 
+             -20px -20px 60px #3b83a55e;
+    border: none
+}
+
+.neo-button {
+    width: 40px;
+    height: 40px;
+    outline: 0 !important;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 50%;
+background: linear-gradient(145deg, #9a40a9, #b74cc9);
+box-shadow: inset 20px 20px 60px #913ca0, 
+             inset -20px -20px 60px #c552d8;
+}
+
+.num{
+	
+	color:#58eb14 !important;
+}
+
+.line{
+	color:#fff;
+}
+
+.neo-button:active {
+   border-radius: 50%;
+background: #AB47BC;
+box-shadow:  28px 28px 57px #933da2, 
+             -28px -28px 57px #c351d6;
+}
+
+.fa-facebook {
+    color: #3b5998
+}
+
+.fa-linkedin {
+    color: #0077b5
+}
+
+.fa-google {
+    color: #dc4e41
+}
+
+.fa-youtube {
+    color: #cd201f
+}
+
+.fa-twitter {
+    color: #55acee
+}
+
+.hone{
+	color:#fff;
+	padding:10px; 
+   border:none;
+   outline:0 !important;
+border-radius: 10px;
+background: #47aabc91;
+box-shadow:  28px 28px 57px #3d60a285, 
+             -28px -28px 57px #37a2d398;
+	
+}
+.hone:hover{
+    background: #47aabc;
+    color: #050805;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px 
+    linear-gradient(transparent, #0005);
+}
+</style>
+
+<div class="container d-flex justify-content-center mb-5 mt-5">
+    <div class="card p-3 py-4">
+        <div class="text-center"> 
+		<img src="https://thumbs.dreamstime.com/b/black-man-to-read-book-icon-illustraction-design-87711089.jpg" width="100" class="rounded-circle">
+            <h3 class="mt-2">{{request.user.username}}</h3>
+			<span class="mt-1 clearfix">{{request.user.email}}</span>
+			
+			<div class="row mt-3 mb-3">
+			
+			  <div class="col-md-4">
+				<h5><a href="{% url 'register' %}">Register</a></h5>
+				<a href="{% url 'register' %}"><span class="num"><img width="100" src="../media/photos/224-2244774_image-result-for-registration-icon-blue-transparent-register-removebg-preview.png" alt=""></span></a>
+			  </div>
+              {% if request.user.is_authenticated %}
+			  <div class="col-md-4">
+			  <h5><a href="{% url 'logout' %}">Log out</a></h5>
+				<a href="{% url 'logout' %}"><span class="num"><img width="55" src="../media/photos/images-removebg-preview.png" alt=""></span></a>
+			  </div>
+              {% else %}
+              
+			  <div class="col-md-4">
+			  <h5><a href="{% url 'login' %}">Log in</a></h5>
+				<a href="{% url 'login' %}"><span class="num"><img width="50" src="../media/photos/images__2_-removebg-preview.png" alt=""></span></a>
+			  </div>
+              {% endif %}
+              <div class="col-md-4">
+                <h5><a href="{% url 'home' %}">Home</a></h5>
+                  <a href="{% url 'home' %}"><span class="num"><img width="50" src="../media/photos/images__1_-removebg-preview.png" alt=""></span></a>
+            </div>
+			
+			</div>
+			
+			<hr class="line">
+			
+			<small class="mt-4">I am an android developer working at google Inc at california,USA</small>
+              <div class="social-buttons mt-5"> 
+			   <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> 
+			   <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> 
+			   <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> 
+			   <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+			   <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button>
+			  </div>
+			  
+			 <div class="profile mt-5">
+			 
+			 <button class="hone">View profile</button>
+
+		</div>
+			   
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% endblock content %}

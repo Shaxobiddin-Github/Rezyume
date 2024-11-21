@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'chirishni Tasdiqlash</title>
+</head>
+<body>
+    <h1>O'chirishni Tasdiqlash</h1>
+    <p>{{ object }} o'chiriladimi?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Ha, o'chirilsin</button>
+    </form>
+    <a href="{% url 'book_list' %}">Ortga qaytish</a>
+</body>
+</html>

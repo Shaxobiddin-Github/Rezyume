@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitob Qo'shish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/premium-photo/world-book-day_9083-14844.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #098f94;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgb(36, 0, 240);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea, form button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0dddc1;
+            border-radius: 5px;
+            
+        }
+
+        form button {
+            background-color: #007BFF;
+            color: rgb(7, 187, 241);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kitob Qo'shish</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Qo'shish</button>
+        
+    </form>
+    <hr>
+    <a href="{% url 'home' %}" class="back-button">Home</a>
+    <a href="{% url 'author_list' %}" class="back-button">Authorlar Ro'yxati</a>
+</body>
+</html>

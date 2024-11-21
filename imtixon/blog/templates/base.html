@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Book Story</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	{% include 'components/_styles.html' %}
+
+
+	<style>
+        .success{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1bfc07;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 16px;
+            padding-left: 900px;
+            border-radius: 5px;
+           
+
+
+        }
+        .warning{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: yellow;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding-left: 900px;
+            border-radius: 5px;
+           
+
+
+        }
+        .success{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1bfc07;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 16px;
+            padding-left: 900px;
+            border-radius: 5px;
+           
+
+
+        }
+        .xatolik{
+            
+                color: red;
+                font-size: 20px;
+                margin-right: 10px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                &:hover{
+                    color: rgb(150, 42, 42);
+                }
+
+            
+        }
+    </style>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+	{% include 'components/_navbar.html' %}
+
+	{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+    
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    {% include 'components/_footer.html' %}
+       
+	
+
+	{% include 'components/_scripts.html' %}
+
+</body>
+
+</html>
